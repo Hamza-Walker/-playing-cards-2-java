@@ -2,9 +2,7 @@ package com.codecool.service;
 
 import com.codecool.model.Card;
 import com.codecool.model.Deck;
-import com.codecool.model.Symbol;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class FrenchDeckBuilder implements DeckBuilder {
@@ -23,7 +21,9 @@ public class FrenchDeckBuilder implements DeckBuilder {
         return new Deck(cards);
     }
     public static void main(String[] args) {
-        CardGeneratorImpl cardGenerator = new CardGeneratorImpl();
+        Logger logger = new ConsoleLogger();
+
+        CardGeneratorImpl cardGenerator = new CardGeneratorImpl(logger);
         FrenchDeckBuilder deckBuilder = new FrenchDeckBuilder(cardGenerator);
         Deck deck = deckBuilder.createDeck();
         print(deck.toString());

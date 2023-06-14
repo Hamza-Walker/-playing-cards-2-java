@@ -6,6 +6,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CardGeneratorImpl implements CardGenerator {
+    private Logger logger;
+
+    public CardGeneratorImpl(Logger logger) {
+        this.logger = logger;
+    }
+
 
     @Override
     public List<Card> generate(int[] numbers, String[] symbols, String[] suits) {
@@ -22,6 +28,7 @@ public class CardGeneratorImpl implements CardGenerator {
     private void addNumberedCards(List<Card> cards, String suit, int[] numbers) {
         for (int number : numbers) {
             Card card = new Card(Integer.toString(number), suit);
+            logger.logInfo(String.format("Generated card %s", card));
             cards.add(card);
         }
     }
@@ -29,6 +36,7 @@ public class CardGeneratorImpl implements CardGenerator {
     private void addCourtCards(List<Card> cards, String suit, String[] symbols) {
         for (String symbol : symbols) {
             Card card = new Card(symbol, suit);
+            logger.logInfo(String.format("Generated card %s", card));
             cards.add(card);
         }
     }

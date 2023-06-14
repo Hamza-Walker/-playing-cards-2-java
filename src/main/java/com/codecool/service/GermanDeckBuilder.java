@@ -21,7 +21,8 @@ public class GermanDeckBuilder implements DeckBuilder {
         return new Deck(cards);
     }
     public static void main(String[] args) {
-        CardGeneratorImpl cardGenerator = new CardGeneratorImpl();
+        Logger logger = new ConsoleLogger();
+        CardGeneratorImpl cardGenerator = new CardGeneratorImpl(logger);
         GermanDeckBuilder deckBuilder = new GermanDeckBuilder(cardGenerator);
         Deck deck = deckBuilder.createDeck();
         print(deck.toString());
