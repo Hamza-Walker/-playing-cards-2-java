@@ -1,15 +1,16 @@
 package com.codecool.model;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.Random;
 import java.util.ArrayList;
 
 public class Deck {
     private static final Random RANDOM = new Random();
-    private final ArrayList<Card> cards;
+    private final List<Card> cards;
     private final ArrayList<Card> drawn;
 
-    public Deck(ArrayList<Card> cards) {
+    public Deck(List<Card> cards) {
         this.cards = cards;
         this.drawn = new ArrayList<>();
     }
@@ -38,4 +39,16 @@ public class Deck {
         cards.addAll(drawn);
     }
 
+    @Override
+    public String toString() {
+        return "Deck{" +
+                "cards=" + cards +
+                ", drawn=" + drawn +
+                '}';
+    }
+
+    public int getCardCount() {
+        int i = 0;
+        return i;
+    }
 }
