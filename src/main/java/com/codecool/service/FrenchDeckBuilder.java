@@ -1,0 +1,29 @@
+package com.codecool.service;
+
+import com.codecool.model.Card;
+import com.codecool.model.Deck;
+import com.codecool.model.Symbol;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class FrenchDeckBuilder {
+    private static final int[] NUMBERS = {2, 3, 4, 5, 6, 7, 8, 9, 10};
+    private static final String[] SYMBOLS = {"Jack", "Queen", "King", "Ace"};
+    private static final String[] SUITS = {"Clubs", "Spades", "Hearts", "Diamonds"};
+
+    private final CardGenerator cardGenerator;
+
+    public FrenchDeckBuilder(CardGeneratorImpl cardGenerator) {
+        this.cardGenerator = cardGenerator;
+    }
+
+    public Deck createDeck() {
+        List<Card> cards = cardGenerator.generate(NUMBERS, SYMBOLS, SUITS);
+        return new Deck(cards);
+    }
+
+    public static <T> void print(T item) {
+        System.out.println(item);
+    }
+}

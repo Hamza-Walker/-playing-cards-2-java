@@ -3,38 +3,22 @@ package com.codecool.model;
 import java.util.Objects;
 
 public class Card {
-    private Symbol symbol;
-    private Suit suit;
-    private GermanSymbol germanSymbol;
-    private GermanSuit germanSuit;
+    private String symbol;
+    private String suit;
     private final String title;
 
-    public Card(Symbol symbol, Suit suit) {
+    public Card(String symbol, String suit) {
         this.symbol = symbol;
         this.suit = suit;
         this.title = createTitle();
     }
 
-    public Card(GermanSymbol germanSymbol, GermanSuit germanSuit) {
-        this.germanSymbol = germanSymbol;
-        this.germanSuit = germanSuit;
-        this.title = createTitle();
-    }
-
-    public Symbol getSymbol() {
+    public String getSymbol() {
         return symbol;
     }
 
-    public Suit getSuit() {
+    public String getSuit() {
         return suit;
-    }
-
-    public GermanSymbol getGermanSymbol() {
-        return germanSymbol;
-    }
-
-    public GermanSuit getGermanSuit() {
-        return germanSuit;
     }
 
     private String getTitle() {
@@ -42,23 +26,19 @@ public class Card {
     }
 
     private String createTitle() {
-        if (germanSuit != null && germanSymbol != null) {
-            return this.germanSymbol + " of " + this.germanSuit;
-        } else {
-            return this.symbol + " of " + this.suit;
-        }
+        return this.symbol + " of " + this.suit;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Card card)) return false;
-        return symbol == card.symbol && suit == card.suit && germanSymbol == card.germanSymbol && germanSuit == card.germanSuit && Objects.equals(title, card.title);
+        return Objects.equals(symbol, card.symbol) && Objects.equals(suit, card.suit) && Objects.equals(title, card.title);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(symbol, suit, germanSymbol, germanSuit, title);
+        return Objects.hash(symbol, suit, title);
     }
 
     @Override
