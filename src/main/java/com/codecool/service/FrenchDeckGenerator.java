@@ -16,13 +16,9 @@ public class FrenchDeckGenerator {
         FrenchDeckGenerator frenchCardGenerator = new FrenchDeckGenerator(generator);
 
         ArrayList<Card> frenchDeck = frenchCardGenerator.cardGenerator.generateFrenchDeck();
-        //print(frenchDeck);
+        print(frenchDeck);
         // Use the generated French deck as needed
 
-        GermanDeckGenerator germanCardGenerator = new GermanDeckGenerator(generator);
-        ArrayList<Card> germanDeck = germanCardGenerator.generateGermanDeck();
-        print(germanDeck);
-        // Use the generated German deck as needed
     }
 
     public static <T> void print(T item) {

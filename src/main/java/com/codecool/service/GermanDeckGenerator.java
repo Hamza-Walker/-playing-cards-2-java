@@ -14,7 +14,15 @@ public class GermanDeckGenerator {
     public ArrayList<Card> generateGermanDeck() {
         return cardGenerator.generateGermanDeck();
     }
+    public static void main(String[] args) {
 
+        CardGenerator generator = new CardGenerator();
+
+        GermanDeckGenerator germanCardGenerator = new GermanDeckGenerator(generator);
+        ArrayList<Card> germanDeck = germanCardGenerator.generateGermanDeck();
+        print(germanDeck);
+        // Use the generated German deck as needed
+    }
     public static <T> void print(T item) {
         System.out.println(item);
     }
