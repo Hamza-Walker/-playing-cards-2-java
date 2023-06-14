@@ -15,6 +15,7 @@ public enum Symbol {
     KING,
     ACE;
 
+
     private final int value;
 
     Symbol(){
