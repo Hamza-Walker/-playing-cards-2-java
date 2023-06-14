@@ -14,7 +14,7 @@ public class CardGenerator {
 
     public ArrayList<Card> generateGermanDeck() {
         ArrayList<Card> deck = new ArrayList<>();
-        generateNumberedCards(deck);
+        generateGermanNumberedCards(deck);
         generateGermanCourtCards(deck);
         return deck;
     }
@@ -34,6 +34,15 @@ public class CardGenerator {
 
             for (Symbol courtSymbol : courtSymbols) {
                 Card card = new Card(courtSymbol, suit);
+                deck.add(card);
+            }
+        }
+    }
+
+    private void generateGermanNumberedCards(ArrayList<Card> deck) {
+        for (GermanSuit suit : GermanSuit.values()) {
+            for (int number = 7; number <= 10; number++) {
+                Card card = new Card(GermanSymbol.NUMBER(number), suit);
                 deck.add(card);
             }
         }
